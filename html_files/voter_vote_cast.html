@@ -1,0 +1,93 @@
+
+<html>
+
+<head>
+    <title>Online voting system - Vote casting screen</title>
+</head>
+
+<body>
+    <center>
+        <h2>Vote Casting Screen</h2>
+
+        <table border="3" style="width:100%;">
+            <tr>
+                <th>Candidate photo</th>
+                <th>Party Symbol</th>
+                <th>Candidate Name</th>
+                <th>Cast vote</th>
+            </tr>
+            <tr>
+                <td><img src="../images/Jayalalithaa.jpg" width="100" height="100"></td>
+                <td><img src="../images/admk_logo.png" width="100" height="100"></td>
+                <td>J. Jayalalithaa</td>
+                <td><input type="radio" id="party1" name="voteCastingRadioButton"></td>
+            </tr>
+            <tr>
+                <td><img src="../images/stalin.jpg" width="100" height="100"></td>
+                <td><img src="../images/dmk logo.jpg" width="100" height="100"></td>
+                <td>M.K Stalin</td>
+                <td><input type="radio" id="party2" name="voteCastingRadioButton"></td>
+            </tr>
+            <tr>
+                <td><img src="../images/narendra modi.jpg" width="100" height="100"></td>
+                <td><img src="../images/bjp logo.jpg" width=" 100" height="100"></td>
+                <td>Narendra Modi</td>
+                <td><input type="radio" id="party3" name="voteCastingRadioButton"></td>
+            </tr>
+            <tr>
+                <td><img src="../images/vijay.jpg" width="100" height="100"></td>
+                <td><img src="../images/Tvk logo.jpg" width="100" height="100"> </td>
+                <td>Vijay</td>
+                <td><input type="radio" id="party4" name="voteCastingRadioButton"></td>
+            </tr>
+        </table>
+
+        <br><br><br>
+
+        <button type="button" onclick="savevote()">Save Vote</button>
+        <button type="button" onclick="cancel()">Cancel</button>
+
+        <br><br>
+
+    </center>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+
+</html>

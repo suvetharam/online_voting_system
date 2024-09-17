@@ -18,7 +18,7 @@
 <body background="..\images\vote_image.jpg">
 
     <div class="alignScreenCenter">
-        <h1> LOGIN PAGE </h1> <br><br><br>
+        <h1> LOGIN PAGE </h1> <br>
 
         <label>Username</label>
         <input type="text" id="user_name" name="user_name"><br><br>
@@ -47,9 +47,11 @@
 
             if (userName == "admin" && psw == "admin123" && userType == "admin") {
                 alert("Admin successfully logined");
+                window.location.href = "admin_home.html";
             }
             else if (userName == "voter" && psw == "voter123" && userType == "voter") {
                 alert("Voter successfully logined");
+                window.location.href = "voter_home.html";
             }
             else {
                 alert("Invalid username / password. Please try again...");
@@ -57,12 +59,12 @@
         }
 
         function voterRegister() {
-            window.location.href = "voter_reg_page.html";
+            window.location.href = "voter_registration.html";
 
         }
 
         function adminRegister() {
-            window.location.href = "admin_reg_page.html";
+            window.location.href = "admin_registration.html";
         }
 
     </script>
