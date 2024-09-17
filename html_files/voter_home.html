@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,30 +19,38 @@
 
 <body>
     <div class="alignScreenCenter">
-        <h4>SELECT VOTING AREA</h4><br><br><br>
 
-        <tr>
-            <td>State:</td>
-            <td><select>
-                    <option>Choose your State</option>
-                    <option>TAMILNADU</option>
-                    <option>KERALA</option>
-                    <option>KARNATAKA</option>
-                </select></td><br><br>
-        </tr>
-        <tr>
-            <td>District:</td>
-            <td><select>
-                    <option>Choose your District</option>
-                    <option>Ariyalur</option>
-                    <option>Chengalpattu</option>
-                    <option>Chennai</option>
-                    <option>Coimbatore</option>
-                    <option>Cuddalore</option>
-                    <option>Dindigul</option>
-                </select></td>
-        </tr>
+        <h4>SELECT VOTING AREA</h4>
+        <label>State</label>
+        <select>
+            <option>Choose your State</option>
+            <option>TAMILNADU</option>
+            <option>KERALA</option>
+            <option>KARNATAKA</option>
+        </select>
+        <br><br>
+
+        <label>District</label>
+        <select>
+            <option>Choose your District</option>
+            <option>Ariyalur</option>
+            <option>Chengalpattu</option>
+            <option>Chennai</option>
+            <option>Coimbatore</option>
+            <option>Cuddalore</option>
+            <option>Dindigul</option>
+        </select>
+
+        <br><br>
+
+        <a href="voter_vote_cast.html">
+            <button type="button" onclick="goToVoteCastScreen()" </button>Go to vote cast screen</button>
+        </a>
+
     </div>
+
+    <script>
+    </script>
 </body>
 
 </html>
