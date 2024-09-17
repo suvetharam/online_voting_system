@@ -2,10 +2,22 @@
 
 <head>
     <title>Online voting system - Vote casting screen</title>
+
+    <style>
+        .alignScreenCenter {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 
-<body>
-    <center>
+<body background="..\images\pxfuel.jpg">
+
+    <div class="alignScreenCenter">
         <h2>Vote Casting Screen</h2>
 
         <table border="3" style="width:100%;">
@@ -45,10 +57,7 @@
 
         <button type="button" onclick="saveVote()">Save Vote</button>
         <button type="button" onclick="cancel()">Cancel</button>
-
-        <br><br>
-
-    </center>
+    </div>
 
     <script>
         function saveVote() {
