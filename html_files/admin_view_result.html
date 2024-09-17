@@ -2,6 +2,17 @@
 
 <head>
     <title>Online voting system - Admin vote result view screen</title>
+
+    <style>
+        .alignScreenCenter {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 
 <body>
@@ -19,38 +30,40 @@
                 <td><img src="../images/jayalalitha_photo.jpg" width="100" height="100"></td>
                 <td><img src="../images/admk_logo.png" width="100" height="100"></td>
                 <td>Jayalalithaa</td>
-                <td><input type="radio" id="party1" name="voteCastingRadioButton"></td>
+                <td>6689223</td>
             </tr>
             <tr>
                 <td><img src="../images/stalin.jpg" width="100" height="100"></td>
                 <td><img src="../images/dmk logo.jpg" width="100" height="100"></td>
                 <td>M.K Stalin</td>
-                <td><input type="radio" id="party2" name="voteCastingRadioButton"></td>
+                <td>699767967</td>
             </tr>
             <tr>
                 <td><img src="../images/narendra modi.jpg" width="100" height="100"></td>
                 <td><img src="../images/bjp logo.jpg" width=" 100" height="100"></td>
                 <td>Narendra Modi</td>
-                <td><input type="radio" id="party3" name="voteCastingRadioButton"></td>
+                <td>90230203</td>
             </tr>
             <tr>
                 <td><img src="../images/vijay.jpg" width="100" height="100"></td>
                 <td><img src="../images/Tvk logo.jpg" width="100" height="100"> </td>
                 <td>Vijay</td>
-                <td><input type="radio" id="party4" name="voteCastingRadioButton"></td>
+                <td>95675756756</td>
             </tr>
         </table>
 
         <br><br><br>
 
-        <button type="button" onclick="savevote()">Save Vote</button>
-        <button type="button" onclick="cancel()">Cancel</button>
+        <button type="button" onclick="backToHomeScreen()">Back to admin home screen</button>
 
         <br><br>
 
     </center>
 
     <script>
+        function backToHomeScreen() {
+            window.location.href = "admin_home.html";
+        }
     </script>
 </body>
 

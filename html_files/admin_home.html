@@ -1,17 +1,37 @@
-
 </html>
 
 <head>
-    <title>Online Voting System - Voter Registeration Page</title>
+    <title>Online Voting System - Admin Home Page</title>
+
+    <style>
+        .alignScreenCenter {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 
 <body>
-    <center>
+    <div class="alignScreenCenter">
         <h1>ADMIN HOME PAGE</h1><br><br>
+
         <button type="button" onclick="addCandidate()">ADD CANDIDATE</button>
         <button type="button" onclick="viewResult()"> VIEW RESULT </button>
+    </div>
 
-    </center>
+    <script>
+        function addCandidate() {
+            window.location.href = "admin_add_candidate.html";
+        }
+
+        function viewResult() {
+            window.location.href = "admin_view_result.html";
+        }
+    </script>
 </body>
 
 </html>
