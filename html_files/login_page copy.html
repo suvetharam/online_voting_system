@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>Online Voting System - Login Page</title>
+
+    <style>
+        .alignScreenCenter {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body background="..\images\pxfuel.jpg">
+
+    <div class="alignScreenCenter">
+        <h1> LOGIN PAGE </h1> <br>
+
+        <label>Username</label>
+        <input type="text" id="user_name" name="user_name"><br><br>
+
+        <label>Password</label>
+        <input type="text" id="password" name="password"><br><br>
+
+        <input type="radio" id="admin" name="user_type" value="admin" checked="checked"> Admin <br>
+        <input type="radio" id="voter" name="user_type" value="voter"> Voter <br><br>
+
+        <button type="submit" onclick="loginButtonClicked()"> Login </button>
+        <button type="reset"> Reset </button> <br><br>
+
+        <button type="button" onclick="adminRegister()"> Admin Registration </button>
+        <button type="button" onclick="voterRegister()"> Voter Registration </button>
+    </div>
+
+    <script>
+        function loginButtonClicked() {
+
+            var userName = document.getElementById("user_name").value;
+            var psw = document.getElementById("password").value;
+
+            var userType = document.querySelector('input[name="user_type"]:checked').value;
+
+            if (userName == "admin" && psw == "admin123" && userType == "admin") {
+                alert("Admin successfully logined");
+                window.location.href = "admin_home.html";
+            }
+            else if (userName == "voter" && psw == "voter123" && userType == "voter") {
+                alert("Voter successfully logined");
+                window.location.href = "voter_home.html";
+            }
+            else {
+                alert("Invalid username / password. Please try again...");
+            }
+        }
+
+        function voterRegister() {
+            window.location.href = "voter_registration.html";
+        }
+
+        function adminRegister() {
+            window.location.href = "admin_registration.html";
+        }
+
+    </script>
+</body>
+
+</html>

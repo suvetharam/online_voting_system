@@ -2,7 +2,12 @@
 
 <head>
     <title>Online voting system - Vote casting screen</title>
-
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <style>
         .alignScreenCenter {
             margin: 0;
@@ -12,13 +17,25 @@
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
         }
+
+        label {
+            height: 1px;
+            width: 25px;
+            display: inline-block;
+        }
+
+        border {
+            box-sizing: border-box;
+            border
+        }
     </style>
 </head>
 
 <body background="..\images\pxfuel.jpg">
+    <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"></div>
 
     <div class="alignScreenCenter">
-        <h2>Vote Casting Screen</h2>
+        <h3>VOTE CASTING SCREEN</h3>
 
         <table border="3" style="width:100%;">
             <tr>
@@ -54,10 +71,12 @@
         </table>
 
         <br><br><br>
-
-        <button type="button" onclick="saveVote()">Save Vote</button>
-        <button type="button" onclick="cancel()">Cancel</button>
+        <center>
+            <button type="button" class="btn btn-success">save vote</button>
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </center>
     </div>
+
 
     <script>
         function saveVote() {

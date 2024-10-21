@@ -2,15 +2,34 @@
 
 <head>
     <title>Online Voting System - Admin Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
     <style>
         .alignScreenCenter {
+            margin: auto;
+            padding: 10px;
+            color: black;
+            margin-top: 220px;
+            font-size: 5px;
+            width: fit-content;
+
+            /* Border */
+            border-style: solid;
             margin: 0;
             position: absolute;
             top: 50%;
             left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+
+            .btn {
+                padding: 5px;
+                width: calc(50% - 10px);
+            }
         }
     </style>
 </head>
@@ -19,10 +38,11 @@
 <body background="..\images\pxfuel.jpg">
 
     <div class="alignScreenCenter">
-        <h1>ADMIN HOME PAGE</h1><br><br>
-
-        <button type="button" onclick="addCandidate()">ADD CANDIDATE</button>
-        <button type="button" onclick="viewResult()"> VIEW RESULT </button>
+        <h2>ADMIN HOME PAGE</h2><br><br>
+        <center>
+            <button type="button" class="btn btn-warning">Add Candidate</button>
+            <button type="button" class="btn btn-success">View Result</button>
+        </center>
     </div>
 
     <script>
