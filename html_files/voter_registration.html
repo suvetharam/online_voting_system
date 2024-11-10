@@ -1,114 +1,218 @@
-</html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Online Voting System - Voter Registeration Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
-        .alignScreenCenter {
-            margin: auto;
-            padding: 10px;
-            padding-left: 25px;
-            padding-bottom: 16px;
-            color: black;
-            margin-top: 160px;
-            margin-bottom: 15px;
-            font-size: 15px;
-            width: fit-content;
-
-            /* Border */
+        .lineborder {
+            /* line Border */
             border-style: solid;
-            position: absolute;
-            top: 25%;
-            left: 50%;
-            box-sizing: border-box;
-            border: bottom 5px;
-            border: left 900px;
-            border-top: 5px;
-            padding: 20px;
-            padding-top: 80px;
-            border-spacing: 300px;
-
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-
         }
 
-        label {
-            height: 1px;
-            width: 220px;
-            display: inline-block;
-
-            position: relative;
-            top: 10px;
-            /* Moves the label down */
-            left: 100px;
-            /* Moves the label to the right */
-        }
-
-        input {
-            margin-top: 2px;
-            /* Adjust the top margin */
-            margin-left: 100px;
-            /* Adjust the left margin */
-            margin: right 10px;
-
+        body,
+        html {
+            height: 100%;
         }
     </style>
 </head>
 
 <body background="..\images\pxfuel.jpg">
 
-    <div class="alignScreenCenter">
-        <center>
-            <h3>VOTER REGISTRATION PAGE</h3>
-        </center>
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <form class="col-4 lineborder">
 
-        <label>Name</label>
-        <input type="text" id="name" name="name"><br><br>
+                <center>
+                    <h3>VOTER REGISTRATION PAGE</h3>
+                </center>
 
-        <label>Father Name</label>
-        <input type="text" id="father_name" name="father_name"><br><br>
+                <div class="row">
+                    <div class="col">
+                        <label>Name</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                    </div>
+                </div>
+                <br>
 
-        <label>Email</label>
-        <input type="text" id="email" name="email"><br><br>
+                <div class="row">
+                    <div class="col">
+                        <label>Father Name</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="father_name" name="father_name"
+                            placeholder="Enter your Father name">
+                    </div>
+                </div>
+                <br>
 
-        <label>Password</label>
-        <input type="text" id="password" name="password"><br><br>
+                <div class="row">
+                    <div class="col">
+                        <label>Date of birth</label>
+                    </div>
+                    <div class="col">
+                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth">
+                    </div>
+                </div>
+                <br>
 
-        <label>Confirm Password</label>
-        <input type="text" id="confirm_password" name="confirm_password"><br><br>
+                <div class="row">
+                    <div class="col">
+                        <label>Email</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="email" name="email"
+                            placeholder="Enter your Email id">
+                    </div>
+                </div>
+                <br>
 
-        <label>Address</label>
-        <input type="text" id="address" name="address"><br><br>
+                <div class="row">
+                    <div class="col">
+                        <label>Password</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="password" name="password"
+                            placeholder="Enter your Password">
+                    </div>
+                </div>
+                <br>
 
-        <label>Pin code</label>
-        <input type="number" id="pincode" name="pincode"><br><br>
+                <div class="row">
+                    <div class="col">
+                        <label>Confirm Password</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="confirm_password" name="confirm_password"
+                            placeholder="Enter your cnfm pswd">
+                    </div>
+                </div>
+                <br>
 
-        <label>Mobile Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"><br><br>
+                <div class="row">
+                    <div class="col">
+                        <label>Address</label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="address" name="address"
+                            placeholder="Enter your Address">
+                    </div>
+                </div>
+                <br>
 
-        <label>Age</label>
-        <input type="number" id="age" name="age"><br><br>
+                <div class="row">
+                    <div class="col">
+                        <label>Pin code</label>
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control" id="pincode" name="pincode"
+                            placeholder="Enter your Pincode" </div>
+                    </div>
+                    <br><br>
 
-        <label>Locality</label>
-        <input type="text" id="locality" name="locality"><br><br>
+                    <div class="row">
+                        <div class="col">
+                            <label>Mobile Number</label>
+                        </div>
+                        <div class="col">
+                            <input type="tel" class="form-control" id="phone" name="phone"
+                             placeholder="123-45-678"
+                                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                        </div>
+                    </div>
+                    <br>
 
-        <label>Gender</label>
-        <input type="radio" id="radio1" name="user_type" value="option1" checked> Male
-        <input type="radio" id="radio2" name="user_type" value="option2">Female<br><br>
 
-        <center>
-            <button type="button" class="btn btn-success">Login</button>
-            <button type="button" class="btn btn-danger">Reset</button><br>
 
-            <a href="login_page.html" target="_blank">Click here go to the Login page</a>
-        </center>
+                    <div class="row"> <!-- <div class="form-group"> -->
+                        <div class="col">
+                            <label>Gender</label><br>
+                        </div>
+                        <div class="col">
+                            <input type="radio" id="radio1" name="user_type" value="option1" checked> Male
+                            <input type="radio" id="radio2" name="user_type" value="option2">Female
+                        </div>
+                    </div>
+                    <br>
+
+                    <center>
+                        <button type="button" class="btn btn-success">Login</button>
+                        <button type="button" class="btn btn-danger">Reset</button>
+                        <br>
+
+                        <a href="login_page.html" target="_blank">Click here go to the Login page</a>
+                    </center>
+
+            </form>
+        </div>
     </div>
+
+    <!-- <form class="col-12">
+        <div class="row">
+            <div class="col-4"></div>
+
+            <div class="col-4 lineborder">
+                <center>
+                    <h3>VOTER REGISTRATION PAGE</h3>
+                </center>
+                <br>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label>Name</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" id="name" name="name">
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label>Father Name</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" id="father_name" name="father_name">
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label>Email</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" id="email" name="email">
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label>Password</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" id="password" name="password">
+                    </div>
+                </div>
+                <br>
+
+            </div>
+
+            <div class="col-4"></div>
+
+        </div>
+
+        </div>
+
+    </form> -->
 </body>
 
 </html>
