@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,14 +17,15 @@
         }
 
         .alignScreenCenter {
+        
+        
             margin: auto;
-            padding: 8px;
+            padding: 12px;
             color: black;
             margin-top: 220px;
             font-size: 16px;
             width: fit-content;
 
-            /* Border */
             border-style: solid;
             margin: 0;
             position: absolute;
@@ -33,7 +33,6 @@
             left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-
         }
     </style>
 </head>
@@ -46,7 +45,6 @@
             <marquee behavior="alternate" direction="" scrollamount="10">ONLINE VOTING SYSTEM</marquee>
         </h3>
     </center>
-
 
     <div class="alignScreenCenter">
         <center>
@@ -61,54 +59,75 @@
 
         <div>
             <label>PASSWORD</label>
-            <input type="text" id="password" name="password">
+            <input type="password" id="password" name="password">
+            <input type="button" class="btn" id="togglePassword" 👁️></input>
+            <br>
+
         </div>
-        <br>
+
 
         <div>
             <center>
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="Admin">
-                <label class="form-check-label" for="flexRadioDefault1">Admin</label>
+                <input class="form-check-input" type="radio" name="user_type" id="user_type" value="admin" checked>
+                <label>Admin</label>
 
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="Voter">
-                <label class="form-check-label" for="flexRadioDefault2">Voter</label>
+                <input class="form-check-input" type="radio" name="user_type" id="user_type" value="voter">
+                <label>Voter</label>
             </center>
         </div>
         <br>
 
         <div>
             <center>
-                <button type="button" class="btn btn-success">Login</button>
-                <button type="button" class="btn btn-danger">Reset</button>
+                <button type="button" class="btn btn-success" onclick="loginButtonClicked()">Login</button>
+                <button type="reset" class="btn btn-danger">Reset</button>
             </center>
         </div>
         <br>
 
         <div>
-            <button type="button" class="btn btn-primary">Admin Registration</button>
-            <button type="button" class="btn btn-primary">Voter Registration</button>
+            <button type="button" onclick="adminRegister()">Admin Registration</button>
+            <button type="button" onclick="voterRegister()">Voter Registration</button>
         </div>
-
     </div>
+
+    <div class="modal fade" id="popupModal" tabindex="-1" aria-labelledby="popupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="popupModalLabel">Login Status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalMessage">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         function loginButtonClicked() {
-
             var userName = document.getElementById("user_name").value;
             var psw = document.getElementById("password").value;
-
             var userType = document.querySelector('input[name="user_type"]:checked').value;
+            var message = "";
 
             if (userName == "admin" && psw == "admin123" && userType == "admin") {
-                alert("Admin successfully logined");
+                message = "Admin successfully logged in!";
                 window.location.href = "admin_home.html";
-            }
-            else if (userName == "voter" && psw == "voter123" && userType == "voter") {
-                alert("Voter successfully logined");
+            } else if (userName == "voter" && psw == "voter123" && userType == "voter") {
+                message = "Voter successfully logged in!";
                 window.location.href = "voter_home.html";
+            } else {
+                message = "Invalid username or password. Please try again.";
             }
-            else {
-                alert("Invalid username / password. Please try again...");
-            }
+
+            document.getElementById("modalMessage").innerText = message;
+            var myModal = new bootstrap.Modal(document.getElementById('popupModal'));
+            myModal.show();
         }
 
         function voterRegister() {
@@ -118,8 +137,6 @@
         function adminRegister() {
             window.location.href = "admin_registration.html";
         }
-
     </script>
 </body>
-
 </html>

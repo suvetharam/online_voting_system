@@ -1,7 +1,10 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Online voting system</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Voting System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -10,78 +13,131 @@
 
     <style>
         .alignScreenCenter {
-            margin: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-
-        label {
-            height: 1px;
-            width: 250px;
-            display: inline-block;
-        }
-
-        .alignScreenCenter {
             margin: auto;
             padding: 10px;
             color: black;
-            margin-top: 220px;
+            margin-top: 20px;
             font-size: 16px;
             width: fit-content;
-
-            /* Border */
             border-style: solid;
-            margin: 1;
             position: absolute;
             top: 50%;
             left: 50%;
-            -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-
         }
 
         label {
-            position: relative;
-            top: 10px;
-            /* Moves the label down */
-            left: 20px;
-            /* Moves the label to the right */
+            display: inline-block;
+            width: 250px;
+        }
+
+        .preview {
+            margin-top: 10px;
+            max-width: 200px;
+            max-height: 200px;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background: #fff;
+            border: 2px solid #000;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .popup button {
+            margin-top: 10px;
         }
     </style>
 </head>
 
-
-<body background="..\images\pxfuel.jpg">
+<body background="../images/pxfuel.jpg">
 
     <div class="alignScreenCenter">
         <center>
             <h4 style="color: blue;">ADD CANDIDATE FORM</h4>
         </center>
 
-        <label>Candidate name</label>
-        <input type="text" id="" name="" value=""><br><br>
+        <label>Candidate Name</label>
+        <input type="text" id="candidateName" name="candidateName" oninput="validateText(this)"><br><br>
 
-        <label>Candidate party name</label>
-        <input type="text" id="" name="" value=""><br><br>
+        <label>Candidate Party Name</label>
+        <input type="text" id="partyName" name="partyName" oninput="validateText(this)"><br><br>
 
-        <label>Candidate photo</label>
-        <input type="file" id="" name="" value=""><br><br>
+        <label>Candidate Photo</label>
+        <input type="file" id="candidatePhoto" name="candidatePhoto" accept="image/*"
+            onchange="previewImage(this, 'candidatePhotoPreview')"><br>
+        <img id="candidatePhotoPreview" class="preview" src="#" alt="Photo Preview" style="display:none;">
 
-        <label>Party symbol</label>
-        <input type="file" id="" name="" value=""><br><br>
+        <label>Party Symbol</label>
+        <input type="file" id="partySymbol" name="partySymbol" accept="image/*"
+            onchange="previewImage(this, 'partySymbolPreview')"><br>
+        <img id="partySymbolPreview" class="preview" src="#" alt="Symbol Preview" style="display:none;">
+
         <center>
-            <button type="button" class="btn btn-success">Login</button>
-            <button type="button" class="btn btn-danger">Reset</button><br>
-
+            <button type="button" class="btn btn-success" onclick="validateForm()">Add Candidate</button>
+            <button type="button" class="btn btn-danger" onclick="resetForm()">Reset</button><br>
             <a href="admin_home.html">Back to admin home screen</a>
+        </center>
+    </div>
+
+
+    <div class="popup" id="successPopup">
+        <h5>Candidate added successfully!</h5>
+        <button class="btn btn-primary" onclick="closePopup()">OK</button>
     </div>
 
     <script>
-        function addCandidate() {
-            alert("Candidate added successfully");
+        function validateText(input) {
+            const regex = /^[a-zA-Z\s]*$/;
+            if (!regex.test(input.value)) {
+                alert("Only alphabets are allowed.");
+                input.value = input.value.replace(/[^a-zA-Z\s]/g, "");
+            }
+        }
+
+        function previewImage(input, previewId) {
+            const preview = document.getElementById(previewId);
+            const file = input.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = "block";
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "#";
+                preview.style.display = "none";
+            }
+        }
+
+        function validateForm() {
+            const candidateName = document.getElementById('candidateName').value.trim();
+            const partyName = document.getElementById('partyName').value.trim();
+
+            if (!candidateName || !partyName) {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            document.getElementById('successPopup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('successPopup').style.display = 'none';
+        }
+
+        function resetForm() {
+            location.reload();
         }
     </script>
 

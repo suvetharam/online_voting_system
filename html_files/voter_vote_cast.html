@@ -21,10 +21,10 @@
 
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
-            <form class="col-6">
+            <form class="col-6" id="voteForm">
 
                 <center>
-                    <h3>VOTE CASTING SCREEN</h3>
+                    <h3 style="color: blue;">VOTE CASTING SCREEN </h3> <br>
                 </center>
                 <br>
 
@@ -36,8 +36,7 @@
                         <th>Cast vote</th>
                     </tr>
                     <tr>
-                        <td><img src=" ../images/Jayalalitha_photo.jpg" width="100" height="100">
-                        </td>
+                        <td><img src=" ../images/Jayalalitha_photo.jpg" width="100" height="100"></td>
                         <td><img src="../images/admk_logo.png" width="100" height="100"></td>
                         <td>J. Jayalalithaa</td>
                         <td><input type="radio" id="party1" name="voteCastingRadioButton" value="party1"></td>
@@ -50,7 +49,7 @@
                     </tr>
                     <tr>
                         <td><img src="../images/modi_photo.jpg" width="100" height="100"></td>
-                        <td><img src="../images/bjp_logo.jpg" width=" 100" height="100"></td>
+                        <td><img src="../images/bjp_logo.jpg" width="100" height="100"></td>
                         <td>Narendra Modi</td>
                         <td><input type="radio" id="party3" name="voteCastingRadioButton" value="party3"></td>
                     </tr>
@@ -64,13 +63,25 @@
                 <br>
 
                 <center>
-                    <button type="button" class="btn btn-success">Save vote</button>
+                    <button type="button" class="btn btn-success" onclick="saveVote()">Save vote</button>
                     <button type="button" class="btn btn-danger">Cancel</button>
                 </center>
 
             </form>
         </div>
     </div>
+
+    <script>
+        function saveVote() {
+            var selectedVote = document.querySelector('input[name="voteCastingRadioButton"]:checked');
+            if (!selectedVote) {
+                alert("Please select a candidate to cast your vote.");
+            } else {
+                alert("Your vote has been saved successfully!");
+                document.getElementById("voteForm").reset();
+            }
+        }
+    </script>
 
 </body>
 

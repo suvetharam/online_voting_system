@@ -11,7 +11,6 @@
 
     <style>
         .lineborder {
-            /* line Border */
             border-style: solid;
             height: 100%;
             margin: 300px;
@@ -21,49 +20,61 @@
 </head>
 
 <body background="..\images\pxfuel.jpg">
-
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <form class="col-3 lineborder">
-
                 <center>
-                    <h3>SELECT VOTING AREA </h3>
+                    <h4 class="mb-4">SELECT VOTING AREA</h4>
 
-
-                    <div class="row">
-                        <div class="col">
-                            <label>State</label>
+                    <div class="row mb-3">
+                        <div class="col-4 text-end">
+                            <label for="state-select">State:</label>
                         </div>
-                        <div class="col">
-                            <select>
-                                <option>choose your State </option>
-                                <option> Tamil Nadu</option>
-                                <option> Kerala</option>
-                                <option> Karnataka</option>
+                        <div class="col-8">
+                            <select id="state-select" class="form-select">
+                                <option value="">Choose your State</option>
+                                <option value="tamil-nadu">Tamil Nadu</option>
+                                <option value="kerala">Kerala</option>
+                                <option value="karnataka">Karnataka</option>
                             </select>
                         </div>
                     </div>
-                    <br>
 
-                    <div class="row">
-                        <div class="col">
-                            <label>District</label>
+                    <div class="row mb-4">
+                        <div class="col-4 text-end">
+                            <label for="district-select">District:</label>
                         </div>
-                        <div class="col">
-                            <select>
-                                <option> Choose your District</option>
-                                option>Ariyalur</option>
-                                <option>Chengalpattu</option>
-                                <option>Chennai</option>
-                                <option>Coimbatore</option>
-                                <option>Cuddalore</option>
-                                <option>Dindigul</option>
+                        <div class="col-8">
+                            <select id="district-select" class="form-select">
+                                <option value="">Choose your District</option>
+                                <option value="ariyalur">Ariyalur</option>
+                                <option value="chengalpattu">Chengalpattu</option>
+                                <option value="chennai">Chennai</option>
+                                <option value="coimbatore">Coimbatore</option>
+                                <option value="cuddalore">Cuddalore</option>
+                                <option value="dindigul">Dindigul</option>
                             </select>
-
                         </div>
                     </div>
+
+                    <button type="button" class="btn btn-primary" id="done-btn">Done</button>
                 </center>
+            </form>
+        </div>
+    </div>
 
+    <script>
+        document.getElementById('done-btn').addEventListener('click', function () {
+            const state = document.getElementById('state-select').value;
+            const district = document.getElementById('district-select').value;
+
+            if (state && district) {
+                window.location.href = 'voter_vote_cast.html';
+            } else {
+                alert('Please select both State and District.');
+            }
+        });
+    </script>
 </body>
 
 </html>

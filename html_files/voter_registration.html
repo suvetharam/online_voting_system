@@ -4,20 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Voter Registration</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
         .lineborder {
-            /* line Border */
             border-style: solid;
         }
 
         body,
         html {
             height: 100%;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9cm;
         }
     </style>
 </head>
@@ -26,10 +30,10 @@
 
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
-            <form class="col-4 lineborder">
+            <form class="col-4 lineborder" onsubmit="return validateForm()">
 
                 <center>
-                    <h3>VOTER REGISTRATION PAGE</h3>
+                    <h3 style="color: blue;"> VOTER REGISTRATION PAGE</h3> <br>
                 </center>
 
                 <div class="row">
@@ -38,6 +42,7 @@
                     </div>
                     <div class="col">
                         <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                        <div class="error-message" id="nameError"></div>
                     </div>
                 </div>
                 <br>
@@ -48,17 +53,19 @@
                     </div>
                     <div class="col">
                         <input type="text" class="form-control" id="father_name" name="father_name"
-                            placeholder="Enter your Father name">
+                            placeholder="Enter your Father's name">
+                        <div class="error-message" id="fatherNameError"></div>
                     </div>
                 </div>
                 <br>
 
                 <div class="row">
                     <div class="col">
-                        <label>Date of birth</label>
+                        <label>Date of Birth</label>
                     </div>
                     <div class="col">
                         <input type="date" class="form-control" id="date_of_birth" name="date_of_birth">
+                        <div class="error-message" id="dobError"></div>
                     </div>
                 </div>
                 <br>
@@ -68,8 +75,8 @@
                         <label>Email</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="email" name="email"
-                            placeholder="Enter your Email id">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Enter your Email">
+                        <div class="error-message" id="emailError"></div>
                     </div>
                 </div>
                 <br>
@@ -79,8 +86,9 @@
                         <label>Password</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="password" name="password"
+                        <input type="password" class="form-control" id="password" name="password"
                             placeholder="Enter your Password">
+                        <div class="error-message" id="passwordError"></div>
                     </div>
                 </div>
                 <br>
@@ -90,8 +98,9 @@
                         <label>Confirm Password</label>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" id="confirm_password" name="confirm_password"
-                            placeholder="Enter your cnfm pswd">
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password"
+                            placeholder="Confirm your Password">
+                        <div class="error-message" id="confirmPasswordError"></div>
                     </div>
                 </div>
                 <br>
@@ -103,116 +112,130 @@
                     <div class="col">
                         <input type="text" class="form-control" id="address" name="address"
                             placeholder="Enter your Address">
+                        <div class="error-message" id="addressError"></div>
                     </div>
                 </div>
                 <br>
 
                 <div class="row">
                     <div class="col">
-                        <label>Pin code</label>
+                        <label>Pin Code</label>
                     </div>
                     <div class="col">
                         <input type="number" class="form-control" id="pincode" name="pincode"
-                            placeholder="Enter your Pincode" </div>
+                            placeholder="Enter your Pincode">
+                        <div class="error-message" id="pincodeError"></div>
                     </div>
-                    <br><br>
+                </div>
+                <br>
 
-                    <div class="row">
-                        <div class="col">
-                            <label>Mobile Number</label>
-                        </div>
-                        <div class="col">
-                            <input type="tel" class="form-control" id="phone" name="phone"
-                             placeholder="123-45-678"
-                                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
-                        </div>
+                <div class="row">
+                    <div class="col">
+                        <label>Mobile Number</label>
                     </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="123-45-678"
+                            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                        <div class="error-message" id="phoneError"></div>
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Gender</label><br>
+                    </div>
+                    <div class="col">
+                        <input type="radio" id="radio1" name="gender" value="Male" checked> Male
+                        <input type="radio" id="radio2" name="gender" value="Female"> Female
+                        <div class="error-message" id="genderError"></div>
+                    </div>
+                </div>
+                <br>
+
+                <center>
+                    <button type="submit" class="btn btn-success">Register</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
                     <br>
 
-
-
-                    <div class="row"> <!-- <div class="form-group"> -->
-                        <div class="col">
-                            <label>Gender</label><br>
-                        </div>
-                        <div class="col">
-                            <input type="radio" id="radio1" name="user_type" value="option1" checked> Male
-                            <input type="radio" id="radio2" name="user_type" value="option2">Female
-                        </div>
-                    </div>
-                    <br>
-
-                    <center>
-                        <button type="button" class="btn btn-success">Login</button>
-                        <button type="button" class="btn btn-danger">Reset</button>
-                        <br>
-
-                        <a href="login_page.html" target="_blank">Click here go to the Login page</a>
-                    </center>
-
+                    <a href="login_page.html" target="_blank">Click here to go to the Login page</a>
+                </center>
             </form>
         </div>
     </div>
 
-    <!-- <form class="col-12">
-        <div class="row">
-            <div class="col-4"></div>
+    <script>
+        function validateForm() {
+            let valid = true;
+            clearErrors();
+            const name = document.getElementById("name").value;
+            if (name === "") {
+                showError("nameError", "Name is required.");
+                valid = false;
+            }
+            const fatherName = document.getElementById("father_name").value;
+            if (fatherName === "") {
+                showError("fatherNameError", "Father's name is required.");
+                valid = false;
+            }
+            const dob = document.getElementById("date_of_birth").value;
+            if (dob === "") {
+                showError("dobError", "Date of birth is required.");
+                valid = false;
+            }
+            const email = document.getElementById("email").value;
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                showError("emailError", "Enter a valid email address.");
+                valid = false;
+            }
+            const password = document.getElementById("password").value;
+            if (password === "") {
+                showError("passwordError", "Password is required.");
+                valid = false;
+            }
+            const confirmPassword = document.getElementById("confirm_password").value;
+            if (confirmPassword !== password) {
+                showError("confirmPasswordError", "Passwords do not match.");
+                valid = false;
+            }
+            const address = document.getElementById("address").value;
+            if (address === "") {
+                showError("addressError", "Address is required.");
+                valid = false;
+            }
+            const pincode = document.getElementById("pincode").value;
+            if (pincode === "" || pincode.length < 6) {
+                showError("pincodeError", "Enter a valid pin code.");
+                valid = false;
+            }
 
-            <div class="col-4 lineborder">
-                <center>
-                    <h3>VOTER REGISTRATION PAGE</h3>
-                </center>
-                <br>
+            const phone = document.getElementById("phone").value;
+            const phonePattern = /^[0-9]{3}-[0-9]{2}-[0-9]{3}$/;
+            if (!phonePattern.test(phone)) {
+                showError("phoneError", "Enter a valid mobile number.");
+                valid = false;
+            }
+            const gender = document.querySelector('input[name="gender"]:checked');
+            if (!gender) {
+                showError("genderError", "Gender is required.");
+                valid = false;
+            }
 
-                <div class="row">
-                    <div class="col-6">
-                        <label>Name</label>
-                    </div>
-                    <div class="col-6">
-                        <input type="text" id="name" name="name">
-                    </div>
-                </div>
-                <br>
+            return valid;
+        }
 
-                <div class="row">
-                    <div class="col-6">
-                        <label>Father Name</label>
-                    </div>
-                    <div class="col-6">
-                        <input type="text" id="father_name" name="father_name">
-                    </div>
-                </div>
-                <br>
+        function clearErrors() {
+            const errorMessages = document.querySelectorAll(".error-message");
+            errorMessages.forEach(msg => msg.textContent = "");
+        }
 
-                <div class="row">
-                    <div class="col-6">
-                        <label>Email</label>
-                    </div>
-                    <div class="col-6">
-                        <input type="text" id="email" name="email">
-                    </div>
-                </div>
-                <br>
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+        }
+    </script>
 
-                <div class="row">
-                    <div class="col-6">
-                        <label>Password</label>
-                    </div>
-                    <div class="col-6">
-                        <input type="text" id="password" name="password">
-                    </div>
-                </div>
-                <br>
-
-            </div>
-
-            <div class="col-4"></div>
-
-        </div>
-
-        </div>
-
-    </form> -->
 </body>
 
 </html>
